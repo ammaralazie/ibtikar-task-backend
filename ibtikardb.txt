@@ -1,0 +1,16 @@
+Postgres cluster ibtikardb created
+  Username:    postgres
+  Password:    AmKHCHp33C5WpR1
+  Hostname:    ibtikardb.internal
+  Flycast:     fdaa:9:a40f:0:1::3
+  Proxy port:  5432
+  Postgres port:  5433
+  Connection string: postgres://postgres:AmKHCHp33C5WpR1@ibtikardb.flycast:5432
+
+
+; DB_CONNECTION=pgsql
+; DB_HOST=ibtikardb.internal
+; DB_PORT=5433
+; DB_DATABASE=ibtikardb
+; DB_USERNAME=postgres
+; DB_PASSWORD=AmKHCHp33C5WpR1

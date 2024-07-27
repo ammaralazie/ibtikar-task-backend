@@ -45,7 +45,6 @@ class Controller extends BaseController
 
         $data = (new \App\Services\AuthService)->authenticateUser($credentials);
 
-        error_log(json_encode('data : '.$data));
         if($data)
             return ApiResponse::success($data,'success',200);
 

@@ -1,0 +1,60 @@
+# fly.toml app configuration file generated for ibtikartask-silent-water-3317 on 2024-07-26T23:49:33+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'ibtikartask-silent-water-3317'
+primary_region = 'otp'
+console_command = 'php /var/www/html/artisan tinker'
+
+[build]
+  [build.args]
+    NODE_VERSION = '18'
+    PHP_VERSION = '8.1'
+
+[env]
+    APP_URL = "https://ibtikartask-silent-water-3317.fly.dev"
+    APP_ENV = "production"
+    LOG_CHANNEL = "stderr"
+    LOG_LEVEL = "info"
+    LOG_STDERR_FORMATTER = "Monolog\\Formatter\\JsonFormatter"
+    SESSION_DRIVER = "cookie"
+    SESSION_SECURE_COOKIE = true
+    DB_CONNECTION = "pgsql"
+    DB_HOST = "ibtikardb.internal"
+    DB_PORT = 5433
+    DB_DATABASE = "ibtikardb"
+    DB_USERNAME = "postgres"
+    DB_PASSWORD = "AmKHCHp33C5WpR1"
+    LDAP_LOGGING = true
+    LDAP_CONNECTION = "default"
+    LDAP_HOST = "ipa.demo1.freeipa.org"
+    LDAP_USERNAME = "uid=admin,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org"
+    LDAP_PASSWORD = "Secret123"
+    LDAP_PORT = 389
+    LDAP_BASE_DN = "dc=demo1,dc=freeipa,dc=org"
+    LDAP_TIMEOUT = 5
+    LDAP_SSL = false
+    LDAP_TLS = false
+    JWT_SECRET="oh5fqlQBnSTl40mBhInDMiQDERhyH1k0w83dTss0DpmvOGRupB2Y2H6k7WbXj9mc"
+
+[http_service]
+    internal_port = 8080
+    force_https = true
+    auto_stop_machines = "stop"
+    auto_start_machines = true
+    min_machines_running = 1
+    processes = ["app"]
+
+
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[health_checks]
+  path = "/health"
+  interval = "30s"
+  timeout = "10s"
+  retries = 3
